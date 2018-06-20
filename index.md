@@ -5,7 +5,7 @@ body {
  color: black;
  }
  h1{
- color: red;
+ color: #a70532;
  }
  </style>
  </head>
