@@ -1,7 +1,19 @@
-<p style= "color:#A70732">
- <Strong> Fatal injuries arising from accidents at work in <br>
-   Great Britain: Headline results 2016/17 </Strong>
-</p>
-
-<p style="border:3px; border-style:solid; border-color:#EAEAEA; padding: 1em;">137 Workers  killed at work in 2016/17....</p>
+<html>
+<head>
+<style>
+body {
+ color: black;
+ }
+ h1{
+ color: red;
+ }
+ </style>
+ </head>
+ <body>
+  
+ <h1>Fatal injuries arising from accidents at work in <br>
+   Great Britain: Headline results 2016/17 </h1>
+<p style="border:3px; border-style:solid; border-color:#EAEAEA; background-color:#EAEAEA padding: 1em;">137 Workers  killed at work in 2016/17....</p>
+</body>
+</html>
 
