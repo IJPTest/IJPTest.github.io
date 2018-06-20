@@ -3,14 +3,18 @@
 <style>
 body {
  color: black;
+ margin:0;
+ padding;0
  }
  h1{
  color: #a70532;
+ margin:0;
  }
  h2{
  color: black;
  background-color: #EAEAEA;
  text-align: center;
+ margin:0;
  }
  </style>
  </head>
