@@ -40,8 +40,10 @@ body {
  <div id="graph-bars"></div>
  </div>
  </div>
+ 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
  <script src="js/jquery.flot.min.js"></script>
+ 
  var graphData = [{
  data: [ [6,1300], [7,1600], [8,1900], [9,2100], [10,2500], [11,2200], [12,2000], [13,1950], [14,1900], [15,2000] ],
  color: '#71c73e'
@@ -51,6 +53,7 @@ body {
  points: {radius: 4, fillColor: '#77b7c5'}
  }
  ];
+ 
  $.plot($('#graph-lines'), graphData, {
  series:{
  points:{
@@ -76,6 +79,7 @@ body {
  tickSizw:1000
  }
  });
+ 
  $,plot($ ('#graph-bars'),graphData,{
  series:{
  bars:{
@@ -99,6 +103,7 @@ body {
  tickSize:1000
  }
  });
+ 
  .graph-container,
  .graph-container div,
  .graph-container a,
@@ -106,6 +111,7 @@ body {
  margin: 0;
  padding:0;
  }
+ 
  .graoh-container, #tooltip, .graph-info a {
  background: #ffffff;
  background: -moz-linear-gradient(top, #ffffff 0%, #f9f9f9 100%);
@@ -114,19 +120,23 @@ body {
  background: -o-linear-gradeint (top, #ffffff 0%, #f9f9f9 100%);
  background: -ms-linear-gradient(top, #ffffff 0%, #f9f9f9 100%);
  background: linear-gradient (to bottom, #ffffff 0%, #f9f9f9 100%);
+ 
  -webkit-border-radius: 3px;
  -moz-border-radius: 3px;
  border-radius: 3px;
  }
+ 
  .graph-container {
  position: relative;
  width: 550px;
  height: 300px;
  padding: 20px;
+ 
  -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
  -moz-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
  box-shadow: 0px 1px 2px rgba (0,0,0,.1);
  }
+ 
  .graph-container &gt; div {
  position: absolute;
  width: inherit;
@@ -134,10 +144,12 @@ body {
  top: 10px;
  left: 25px;
  }
+ 
  .graph-info {
  width: 590px;
  margin-bottom: 10px;
  }
+ 
  .graph-info a {
  position: relative;
  display: inline-block;
@@ -148,6 +160,7 @@ body {
  text-decoration: none;
  cursor: default;
  }
+ 
  .graph-info a:before{
  positio: absolute;
  display: block;
@@ -160,10 +173,13 @@ body {
  -moz-border-radius: 5px;
  border-radius: 5px;
  }
+ 
  .graph-info .visitors { border-bottom: 2px solid #71c73e;}
  .graph-info .returning {border-bottom: 2px solid #77b7c5;}
+ 
  .graph-info .visitors:before {background: #71c73e;}
  .graph-info .returning:before {background: #77b7c5;}
+ 
  #lines, #bars {
  width: 34px;
  height: 32px;
@@ -174,6 +190,7 @@ body {
  float: right;
  cursor: pointer;
  }
+ 
  #lines.active, #bars.active{
  background: #82d344;
  background: -moz-linear-gradient(top, #82d344 0%, #71c73e 100%);
@@ -183,29 +200,45 @@ body {
  background: -ms-linear-gradient(top, #82d344 0%, #71c73e 100%);
  background: linear-gradient (to bottom, #82d344 0%, #71c73e 100%);
  }
+ 
  #lines span, #bars span {
  display: block;
  width: 34px;
  height: 32px;
  background: url('../img/lines.png') no-repeat 9px 12px;
  }
+ 
  #bars span {background: url('../img/bars.png') no-repeat center 10px; }
+ 
  #lines.active span {background-image: url('../img/lines_active.png');}
+ 
  #bars.active span {background-image: url('../img/bars_active.png');}
+ 
  .graph-info:before, .graph-info:after,
  .graph-container:before, .graph-container:after{
  content:'';
  display:block;
  clear:both;
  }
+ 
  $('#graph-bars').hide();
+ 
  $('#lines').on('click', function (e) {
  $('#bars').removeClass('active');
  $('#graph-bars').fadeOut();
  $(this).addClass('active');
- $('#graph-bars'),fadeIn().removeClass('hidden');
+ $('#graph-lines').fadeIn();
  e.preventDefault();
  });
+ 
+ $('#bars').on {'click', function (e) {
+ $('#lines').removeClass('actove');
+ $('#graph-lines').fadeOut();
+ $(this).addClass('active');
+ $('#graph-bars').fadeIn().removeClass('hidden');
+  e.preventDefault();
+ });
+ 
  #tooltip, .graph-info a {
  font-family: 'Helvetica Neue', Helvetica, Ariel, sans-serif;
  font-weight: bold;
@@ -213,22 +246,29 @@ body {
  line-height: 20px;
  color: #646464;
  }
+ 
  .tickLabel {
  font-weight: bold;
  font-size: 12px;
  color: #666;
  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ }
+ 
  .yAxis .tickLabel:first-child,
  .yAxis .tickLabel:last-child {display: none;}
+ 
  function showTooltip (x,y,contents){
  $('
  &lt;div id=&quot;tooltip%quot;&gt;' + contents + '&lt;/div&gt;
+ 
  ').css({
  top: y - 16,
  left: x + 20
  }).appendTo('body').fadeIn();
  }
+ 
  var previousPoint = null;
+
  $('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
  if (item) {
  if (previousPoint !=item.dataIndex) {
